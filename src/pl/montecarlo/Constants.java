@@ -9,7 +9,7 @@ package pl.montecarlo;
  */
 public interface Constants {
 
-	int samplesRate = 500_000;
+	int samplesRate = 1_000_000;
 	int trials = 10;
 	int radius = 500;
 	int diameter = radius * 2;

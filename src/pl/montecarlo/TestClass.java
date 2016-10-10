@@ -11,6 +11,7 @@ public class TestClass implements Constants {
 
 	public static void main(String[] args) {
 		double[][] coords = new double[samplesRate][2];
+		double[] trialResults = new double[trials];
 		for (int i = 0; i < trials; i++) {
 			int circleRateCounter = 0;
 			for (int j = 0; j < samplesRate; j++) {
@@ -22,8 +23,14 @@ public class TestClass implements Constants {
 					circleRateCounter++;
 			}
 			double result = 4 * ((double) circleRateCounter / samplesRate);
-			System.out.println(String.format("Trial number %s, pi = %6f", i, result));
+			trialResults[i] = result;
+			System.out.println(String.format("Trial number %s, pi = %6f", i+1, result));
 		}
+		double s = 0.0;
+		for (double trialResult : trialResults) {
+			s+= trialResult;
+		}
+		System.out.println(s/trials);
 		new PreviewCanvas(coords).showWindow();
 	}
 }
